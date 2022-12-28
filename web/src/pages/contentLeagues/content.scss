@@ -1,0 +1,15 @@
+.content {
+    min-height: calc(100vh - 125px);
+    width: 100vw;
+
+    position: absolute;
+    top: 125px;
+    left: 0;
+
+    background-color: black;
+
+    .wrapper {
+        height: 100%;
+        width: 100%;
+    }
+}

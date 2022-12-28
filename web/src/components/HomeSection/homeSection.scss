@@ -1,0 +1,56 @@
+.section {
+    position: relative;
+
+    width: 100%;
+    height: 777px;
+
+    display: flex;
+    align-items: center;
+
+    &:nth-child(even) {
+        background-color: #0f1014;
+    }
+
+    .text {
+        &.left {
+            position: absolute;
+            left: 140px;
+        }
+
+        &.right {
+            position: absolute;
+            right: 139px;
+        }
+
+        width: 537px;
+
+        .title {
+            width: 90%;
+            font-size: 32px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            width: 100%;
+            font-size: 22px;
+            color: #898a90;
+        }
+    }
+
+    .video {
+        width: 49.5%;
+        height: auto;
+
+        &.right {
+            position: absolute;
+            right: 140px;
+        }
+
+        &.left {
+            position: absolute;
+            left: 140px;
+        }
+    }
+}
