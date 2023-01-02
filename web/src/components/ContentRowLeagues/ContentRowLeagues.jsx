@@ -13,8 +13,6 @@ const ContentRowLeagues = () => {
     setleagues(JSON.parse(localStorage.getItem("user")).league[0]);
   }, []);
 
-  console.log(leagues);
-
   return (
     <div className="content-row">
       {Object.keys(leagues).length > 0 && (

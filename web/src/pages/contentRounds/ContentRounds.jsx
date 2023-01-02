@@ -43,8 +43,6 @@ const ContentRounds = () => {
     GetRounds();
   }, [params]);
 
-  console.log(rounds);
-
   return (
     <div className="content">
       <ContentRowRounds rounds={rounds} />

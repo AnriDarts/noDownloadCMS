@@ -1,6 +1,6 @@
 import "./contentCard.scss";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ContentCard = ({
   hasTitle,
@@ -11,6 +11,7 @@ const ContentCard = ({
   title,
   hasLink,
   link,
+  file,
 }) => {
   const navigate = useNavigate();
 
@@ -30,8 +31,20 @@ const ContentCard = ({
           {hasTitle && <div className="title">{title}</div>}
           {hasButtons && (
             <div className="btns">
-              {hasPreview && <button className="preview">PREVIEW</button>}
-              {hasDownload && <button className="download">DOWNLOAD</button>}
+              {hasPreview && (
+                <Link
+                  to={"/watch"}
+                  state={{ from: window.location.pathname, videoToPlay: file }}
+                  className="preview-h"
+                >
+                  <button className="preview">PREVIEW</button>
+                </Link>
+              )}
+              {hasDownload && (
+                <a href={file}>
+                  <button className="download">DOWNLOAD</button>
+                </a>
+              )}
             </div>
           )}
         </div>

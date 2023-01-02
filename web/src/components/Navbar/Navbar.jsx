@@ -6,36 +6,36 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
 import { useContext } from "react";
+import { useEffect } from "react";
 
-const Navbar = () => {
+const Navbar = ({ setSearch }) => {
+  const [showMore, setShowMore] = useState(false);
+
   const { dispatch } = useContext(AuthContext);
 
   const logOut = () => {
     dispatch(logout());
   };
 
-  const sports = [
-    "football",
-    "basketball",
-    "racing",
-    "tennis",
-    "hockey",
-    "MMA",
-  ];
+  const [sports, setSports] = useState(
+    JSON.parse(localStorage.getItem("user")).sport
+  );
 
-  const [showMore, setShowMore] = useState(false);
-
-  console.log(showMore);
+  useEffect(() => {
+    setSports(JSON.parse(localStorage.getItem("user")).sport);
+  }, []);
 
   return (
     <div className="navbar">
       <div className="wrapper">
         <div className="left">
-          <img
-            src="/images/navbar/setanta-logo.png"
-            alt=""
-            className="setanta-logo"
-          />
+          <Link to="/home">
+            <img
+              src="/images/navbar/setanta-logo.png"
+              alt=""
+              className="setanta-logo"
+            />
+          </Link>
         </div>
 
         <div className="middle">
@@ -94,7 +94,12 @@ const Navbar = () => {
         </div>
 
         <div className="right">
-          <input type="text" className="search" placeholder="Search" />
+          <input
+            type="text"
+            className="search"
+            placeholder="Search"
+            onChange={(e) => setSearch(e.target.value)}
+          />
 
           <button className="log-out-btn" onClick={logOut}>
             Log Out

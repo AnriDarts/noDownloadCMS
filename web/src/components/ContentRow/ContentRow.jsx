@@ -19,6 +19,7 @@ const ContentRow = ({ contents }) => {
               hasDownload={true}
               title={content.title}
               image={content.thumbnail}
+              file={content.files}
             />
           ))}
 
@@ -32,6 +33,7 @@ const ContentRow = ({ contents }) => {
               hasDownload={true}
               title={content.title}
               image={content.thumbnail}
+              file={content.files}
             />
           ))}
       </div>

@@ -11,14 +11,18 @@ import {
 } from "react-router-dom";
 
 import { AuthContext } from "./authContext/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ContentRounds from "./pages/contentRounds/ContentRounds";
 import ContentLeagues from "./pages/contentLeagues/ContentLeagues";
 import ContentTypes from "./pages/contentTypes/ContentTypes";
 import Content from "./pages/content/Content";
+import Watch from "./pages/watch/Watch";
+import SearchedContent from "./pages/searchedContent/SearchedContent";
 
 function App() {
   const { user } = useContext(AuthContext);
+
+  const [search, setSearch] = useState("");
 
   return (
     <div className="App">
@@ -39,8 +43,12 @@ function App() {
             element={
               user ? (
                 <>
-                  <Navbar />
-                  <Home />
+                  <Navbar setSearch={setSearch} />
+                  {search === "" ? (
+                    <Home />
+                  ) : (
+                    <SearchedContent search={search} />
+                  )}
                 </>
               ) : (
                 <Navigate to={"/sign-in"} />
@@ -60,8 +68,12 @@ function App() {
             element={
               user ? (
                 <>
-                  <Navbar />
-                  <ContentLeagues />
+                  <Navbar setSearch={setSearch} />
+                  {search === "" ? (
+                    <ContentLeagues />
+                  ) : (
+                    <SearchedContent search={search} />
+                  )}
                 </>
               ) : (
                 <Navigate to={"/sign-in"} />
@@ -74,8 +86,12 @@ function App() {
             element={
               user ? (
                 <>
-                  <Navbar />
-                  <ContentRounds />
+                  <Navbar setSearch={setSearch} />
+                  {search === "" ? (
+                    <ContentRounds />
+                  ) : (
+                    <SearchedContent search={search} />
+                  )}
                 </>
               ) : (
                 <Navigate to={"/sign-in"} />
@@ -88,8 +104,12 @@ function App() {
             element={
               user ? (
                 <>
-                  <Navbar />
-                  <ContentTypes />
+                  <Navbar setSearch={setSearch} />
+                  {search === "" ? (
+                    <ContentTypes />
+                  ) : (
+                    <SearchedContent search={search} />
+                  )}
                 </>
               ) : (
                 <Navigate to={"/sign-in"} />
@@ -102,8 +122,25 @@ function App() {
             element={
               user ? (
                 <>
-                  <Navbar />
-                  <Content />
+                  <Navbar setSearch={setSearch} />
+                  {search === "" ? (
+                    <Content />
+                  ) : (
+                    <SearchedContent search={search} />
+                  )}
+                </>
+              ) : (
+                <Navigate to={"/sign-in"} />
+              )
+            }
+          />
+
+          <Route
+            path="/watch"
+            element={
+              user ? (
+                <>
+                  <Watch />
                 </>
               ) : (
                 <Navigate to={"/sign-in"} />

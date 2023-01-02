@@ -1,22 +1,19 @@
 import "./content.scss";
 import React from "react";
 import Footer from "../../components/Footer/Footer";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import ContentRow from "../../components/ContentRow/ContentRow";
 
-const Content = () => {
-  const params = useParams();
-
+const SearchedContent = ({ search }) => {
   const [content, setContent] = useState([]);
 
   useEffect(() => {
-    const getContent = async () => {
+    const searchContent = async () => {
       try {
         const res = await axios.get(
-          `https://apiscts.adjara.com/api/content/type?sport=${params.sport}&league=${params.league}&week=${params.round}&type=${params.type}`,
+          `https://apiscts.adjara.com/api/content/search?search=${search}`,
           {
             headers: {
               token:
@@ -31,8 +28,9 @@ const Content = () => {
         console.log(err);
       }
     };
-    getContent();
-  }, [params]);
+
+    searchContent();
+  }, [search]);
 
   return (
     <div className="content">
@@ -43,4 +41,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default SearchedContent;
