@@ -1,0 +1,23 @@
+.upload-content {
+  position: absolute;
+  top: 125px;
+
+  height: calc(100vh - 125px);
+
+  .wrapper {
+    height: 100%;
+
+    .sport-content {
+      height: 100%;
+
+      &.active {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.content-card {
+    width: 29vw;
+    height: 31.5vh;
+
+    margin-left: 3.25vw;
+    margin-top: 20px;
+
+    .card {
+        width: 100%;
+        height: 100%;
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        position: relative;
+
+        border-radius: 5px;
+
+        cursor: pointer;
+
+        &:hover {
+            border: 1px inset #939393;
+
+            .title {
+                display: none;
+            }
+
+            .btns {
+                width: 100%;
+                height: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background-color: rgba(0, 0, 0, 0.4);
+
+                a {
+                    width: 31.5%;
+                    height: 18.5%;
+
+                    text-decoration: none;
+
+                    &.preview-h {
+                        margin-right: 10px;
+                    }
+
+                    button {
+                        width: 100%;
+                        height: 100%;
+
+                        border-radius: 5px;
+
+                        border: 1px inset #ffffff;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        font-size: 16px;
+                        font-weight: bold;
+                        color: #ffffff;
+
+                        background-color: rgba(0, 0, 0, 0);
+
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: rgb(253, 209, 6);
+                            border: none;
+                            color: rgba(0, 0, 0);
+                        }
+                    }
+                }
+            }
+        }
+
+        .title {
+            width: 100%;
+            height: 65px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: absolute;
+            bottom: 0;
+
+            background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .btns {
+            display: none;
+        }
+    }
+}
